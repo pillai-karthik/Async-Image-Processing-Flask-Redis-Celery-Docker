@@ -14,6 +14,30 @@ def call_method():
     return r.id
 
 
+@app.route('/task-result/<task_id>')
+def get_task_result(task_id):
+    status = simple_app.AsyncResult(task_id, app=simple_app)
+
+    if str(status.state)=="SUCCESS":
+        result = simple_app.AsyncResult(task_id).result
+        
+        return jsonify(result), 200
+
+    elif str(status.state)=="PENDING":
+        response={}
+        response["Message"]="Processing Images. Please wait!"
+        return jsonify(response), 202
+
+    elif str(status.state)=="FAILURE":
+        response={}
+        response["Message"]="Failed to Process Images!"
+        return jsonify(response), 400 
+
+    response={}
+    response["Message"]="Unknown error occured!"
+    return jsonify(response), 500 
+
+#===================OPTIONAL APIs====================
 @app.route('/simple_task_status/<task_id>')
 def get_status(task_id):
     status = simple_app.AsyncResult(task_id, app=simple_app)
@@ -25,5 +49,4 @@ def get_status(task_id):
 def task_result(task_id):
     result = simple_app.AsyncResult(task_id).result
     return "Result of the Task " + str(result)
-
-
+#====================================================
