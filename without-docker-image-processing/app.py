@@ -94,6 +94,14 @@ def get_task_result(task_id):
     response["Message"]="Unknown error occured!"
     return jsonify(response), 500 
 
+@app.route('/asd8734kslsdasldasd09asslkdjasd-lksdj98-lsdsdsad', methods=['GET'])
+def deleteAndCleanUpUploadFolder():
+    import shutil
+    try:
+        shutil.rmtree("./uploaded_images/")
+    except:
+        return jsonify({"message":"Already empty!"}), 200
+    return jsonify({"message":"Done!"}), 200
 
 @app.route('/output/<imageFoldername>/<imageFilename>', methods=['GET'])
 def getResultantImage(imageFoldername,imageFilename):
