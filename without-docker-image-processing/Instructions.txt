@@ -1,0 +1,12 @@
+To run the application -
+
+
+Run Redis Contaner -
+docker-compose up
+
+Run the flask app -
+flask run --host=0.0.0.0
+
+Run the background celery worker-
+pip install eventlet
+celery -A tasks worker --loglevel=info --pool=eventlet

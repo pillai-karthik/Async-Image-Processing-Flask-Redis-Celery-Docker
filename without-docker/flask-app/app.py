@@ -1,9 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify
 from celery import Celery
 
 app = Flask(__name__)
 simple_app = Celery('simple_worker', broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
 
+@app.route('/test', methods=['GET'])
+def test_api():
+    return "Success"
 
 @app.route('/simple_start_task')
 def call_method():
