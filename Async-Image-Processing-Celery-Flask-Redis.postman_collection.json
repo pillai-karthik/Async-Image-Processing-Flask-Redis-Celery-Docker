@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "7736f54e-5f7c-4e92-ac4a-335c2ae6b64a",
+		"name": "Async-Image-Processing-Celery-Flask-Redis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10088442"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/simple_start_task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/simple_start_task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"simple_start_task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/simple_task_status/db93f77d-0b58-4de9-a5ce-916523ee5ebf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/simple_task_status/db93f77d-0b58-4de9-a5ce-916523ee5ebf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"simple_task_status",
+						"db93f77d-0b58-4de9-a5ce-916523ee5ebf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/simple_task_result/db93f77d-0b58-4de9-a5ce-916523ee5ebf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/simple_task_result/db93f77d-0b58-4de9-a5ce-916523ee5ebf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"simple_task_result",
+						"db93f77d-0b58-4de9-a5ce-916523ee5ebf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
